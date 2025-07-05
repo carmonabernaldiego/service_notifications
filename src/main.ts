@@ -54,7 +54,7 @@ async function bootstrap() {
       urls: [configService.get<string>('RABBITMQ_URL')], // Conexión con RabbitMQ
       queue: 'notifications_queue',
       queueOptions: {
-        durable: false,
+        durable: true,
       },
     },
   };
