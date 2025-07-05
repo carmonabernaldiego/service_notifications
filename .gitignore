@@ -40,4 +40,4 @@ lerna-debug.log*
 ormconfig.json
 /entities
 
-automaker-key.pem
+notifications-service.pem
