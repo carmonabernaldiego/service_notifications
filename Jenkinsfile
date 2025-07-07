@@ -17,20 +17,21 @@ pipeline {
     }
 
     stage('Ejecutar contenedor') {
-      steps {
-        script {
-          sh 'docker stop $IMAGE_NAME || true'
-          sh 'docker rm   $IMAGE_NAME || true'
-          sh """
-            docker run -d \
-              --name $IMAGE_NAME \
-              --restart unless-stopped \
-              -p 3000:3000 \
-              --env-file "$ENV_FILE" \
-              $IMAGE_NAME
-          """
+            steps {
+                script {
+                    // 1. Detener y eliminar el contenedor antiguo si existe
+                    sh 'docker stop $IMAGE_NAME || true'
+                    sh 'docker rm $IMAGE_NAME || true'
+                    
+                    // 2. Ejecutar el nuevo contenedor con el env.txt
+                    sh """docker run -d \\
+                          --name $IMAGE_NAME \\
+                          --restart unless-stopped \\
+                          -p 3000:3000 \\
+                          --env-file "$ENV_FILE" \\
+                          $IMAGE_NAME"""
+                }
+            }
         }
-      }
-    }
   }
 }
