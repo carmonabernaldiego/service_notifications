@@ -18,7 +18,7 @@ pipeline {
         stage('Instalación de dependencias') {
             steps {
                 dir('service_notifications') {
-                    sh 'npm install'
+                    sh 'npm install --legacy-peer-deps'
                 }
             }
         }
