@@ -21,8 +21,8 @@ async function bootstrap() {
 
   // Configuración de Swagger (solo para QA y DEV)
   const options = new DocumentBuilder()
-    .setTitle('API Notifications AutoMaker')
-    .setDescription('API Notifications AutoMaker')
+    .setTitle('API Notifications Service')
+    .setDescription('API Notifications Service')
     .setVersion('1.0')
     .addTag('MicroService')
     .addBearerAuth()
@@ -43,7 +43,7 @@ async function bootstrap() {
   await app.listen(process.env.PORT || 3000, () => {
     Logger.log(
       `Listening on test port: ${process.env.PORT || 3000}`,
-      'Notifications AutoMaker',
+      'NotificationsService',
     );
   });
 
