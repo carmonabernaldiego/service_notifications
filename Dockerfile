@@ -1,5 +1,5 @@
 # Base
-FROM node:18
+FROM node:20
 
 # Crea el directorio
 WORKDIR /app
